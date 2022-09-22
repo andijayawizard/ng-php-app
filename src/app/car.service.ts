@@ -7,8 +7,8 @@ import { Car } from './car';
   providedIn: 'root',
 })
 export class CarService {
-  // baseUrl = 'http://localhost:8080';
-  baseUrl = 'http://localhost/angular_12_with_php_backend-master/backend/api';
+  // baseUrl = 'http://localhost/ng12php/api.php/records';
+  baseUrl = 'http://localhost/ng12php/backend/api';
   constructor(private http: HttpClient) {}
 
   getAll() {
