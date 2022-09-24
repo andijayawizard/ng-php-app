@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'cars';
   cars: Car[] = [];
-  car: Car = { model: '', price: 0 };
+  car: Car = { brand_id: 0, model: '', price: 0 };
   error = '';
   success = '';
 
@@ -42,10 +42,15 @@ export class AppComponent implements OnInit {
       error: (err) => (this.error = err.message),
     });
   }
-  updateCar(name: any, price: any, id: any) {
+  updateCar(brand_id: any, name: any, price: any, id: any) {
     this.resetAlerts();
     this.carService
-      .update({ model: name.value, price: price.value, id: +id })
+      .update({
+        brand_id: brand_id.value,
+        model: name.value,
+        price: price.value,
+        id: +id,
+      })
       .subscribe({
         next: (res) => {
           this.success = 'Updated Successfully';
